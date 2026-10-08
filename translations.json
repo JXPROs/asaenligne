@@ -1,0 +1,73 @@
+{
+    "fr": {
+        "nav": {
+            "home": "Accueil",
+            "articles": "Articles",
+            "categories": "Catégories",
+            "about": "À propos"
+        },
+
+        "hero": {
+            "badge": "TRAVAIL EN LIGNE",
+            "title": "Construis ton avenir grâce au travail en ligne.",
+            "description": "Conseils pratiques, freelancing, business digital, compétences et opportunités accessibles depuis Madagascar.",
+            "button": "Découvrir les articles →"
+        },
+
+        "categories": {
+            "label": "EXPLORER",
+            "title": "Apprends. Crée. Gagne."
+        },
+
+        "articles": {
+            "label": "BLOG",
+            "title": "Articles récents"
+        },
+
+        "newsletter": {
+            "title": "Reçois les nouvelles opportunités.",
+            "description": "Conseils et idées pour développer tes revenus en ligne."
+        },
+
+        "about": {
+            "title": "Le blog du travail en ligne.",
+            "description": "Notre objectif est d'aider les jeunes à découvrir les opportunités du numérique et du travail en ligne."
+        }
+    },
+
+    "mg": {
+        "nav": {
+            "home": "Fandraisana",
+            "articles": "Lahatsoratra",
+            "categories": "Sokajy",
+            "about": "Momba anay"
+        },
+
+        "hero": {
+            "badge": "ASA AN-TSERASERA",
+            "title": "Amboary ny hoavinao amin'ny asa an-tserasera.",
+            "description": "Torohevitra, freelancing, business digital, fahaiza-manao ary fahafahana miasa amin'ny Internet eto Madagasikara.",
+            "button": "Hijery lahatsoratra →"
+        },
+
+        "categories": {
+            "label": "HITADIAVA",
+            "title": "Mianara. Mamorona. Mahazo vola."
+        },
+
+        "articles": {
+            "label": "BLOG",
+            "title": "Lahatsoratra vaovao"
+        },
+
+        "newsletter": {
+            "title": "Mahazoa vaovao momba ny fahafahana miasa.",
+            "description": "Torohevitra sy hevitra hanatsarana ny vola azonao amin'ny Internet."
+        },
+
+        "about": {
+            "title": "Blog momba ny asa an-tserasera.",
+            "description": "Ny tanjonay dia ny hanampy ny tanora hahita fahafahana vaovao amin'ny tontolo numérique sy Internet."
+        }
+    }
+}
