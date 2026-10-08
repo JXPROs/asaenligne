@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WorkMada - Travail en ligne</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="container nav">
+
+        <a href="#" class="logo">
+            <span>W</span> WorkMada
+        </a>
+
+        <nav>
+            <a href="#home" data-i18n="nav.home">Accueil</a>
+            <a href="#articles" data-i18n="nav.articles">Articles</a>
+            <a href="#categories" data-i18n="nav.categories">Catégories</a>
+            <a href="#about" data-i18n="nav.about">À propos</a>
+        </nav>
+
+        <div class="nav-actions">
+            <button id="languageBtn">MG</button>
+            <button id="themeBtn">☾</button>
+        </div>
+
+    </div>
+</header>
+
+
+<main>
+
+<section class="hero" id="home">
+
+    <div class="container hero-content">
+
+        <div class="hero-text">
+
+            <span class="badge" data-i18n="hero.badge">
+                TRAVAIL EN LIGNE
+            </span>
+
+            <h1 data-i18n="hero.title">
+                Construis ton avenir grâce au travail en ligne.
+            </h1>
+
+            <p data-i18n="hero.description">
+                Conseils pratiques, freelancing, business digital,
+                compétences et opportunités accessibles depuis Madagascar.
+            </p>
+
+            <a href="#articles" class="primary-btn" data-i18n="hero.button">
+                Découvrir les articles →
+            </a>
+
+        </div>
+
+        <div class="hero-card">
+
+            <div class="floating-card card-one">
+                💻
+                <strong>Freelance</strong>
+                <small>Travaille depuis chez toi</small>
+            </div>
+
+            <div class="floating-card card-two">
+                🚀
+                <strong>Business digital</strong>
+                <small>Crée ton activité</small>
+            </div>
+
+            <div class="hero-circle">
+                💡
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="categories" id="categories">
+
+    <div class="container">
+
+        <div class="section-title">
+            <span data-i18n="categories.label">EXPLORER</span>
+            <h2 data-i18n="categories.title">
+                Apprends. Crée. Gagne.
+            </h2>
+        </div>
+
+        <div class="category-grid">
+
+            <button class="category" data-category="Freelancing">
+                💻
+                <strong>Freelancing</strong>
+                <small>Travail indépendant</small>
+            </button>
+
+            <button class="category" data-category="Business">
+                🚀
+                <strong>Business digital</strong>
+                <small>Créer une activité en ligne</small>
+            </button>
+
+            <button class="category" data-category="Compétences">
+                🎯
+                <strong>Compétences</strong>
+                <small>Développer ses capacités</small>
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="articles-section" id="articles">
+
+    <div class="container">
+
+        <div class="articles-header">
+
+            <div class="section-title">
+                <span data-i18n="articles.label">BLOG</span>
+                <h2 data-i18n="articles.title">
+                    Articles récents
+                </h2>
+            </div>
+
+            <button id="allArticles" class="filter-btn active">
+                Tous
+            </button>
+
+        </div>
+
+        <div id="articlesGrid" class="articles-grid"></div>
+
+    </div>
+
+</section>
+
+
+<section class="newsletter">
+
+    <div class="container newsletter-box">
+
+        <div>
+            <span>NEWSLETTER</span>
+
+            <h2 data-i18n="newsletter.title">
+                Reçois les nouvelles opportunités.
+            </h2>
+
+            <p data-i18n="newsletter.description">
+                Conseils et idées pour développer tes revenus en ligne.
+            </p>
+        </div>
+
+        <form id="newsletterForm">
+
+            <input
+                type="email"
+                placeholder="Ton adresse email"
+                required
+            >
+
+            <button type="submit">
+                S'inscrire
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<section class="about" id="about">
+
+    <div class="container">
+
+        <span>WORKMADA</span>
+
+        <h2 data-i18n="about.title">
+            Le blog du travail en ligne.
+        </h2>
+
+        <p data-i18n="about.description">
+            Notre objectif est d'aider les jeunes à découvrir
+            les opportunités du numérique et du travail en ligne.
+        </p>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <div class="container footer-content">
+
+        <strong>WorkMada</strong>
+
+        <p>
+            © 2026 WorkMada
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- MODAL ARTICLE -->
+
+<div id="articleModal" class="modal">
+
+    <div class="modal-content">
+
+        <button class="close-modal" id="closeModal">
+            ×
+        </button>
+
+        <div id="modalContent"></div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+let currentLanguage = "fr";
+let articles = [];
+
+
+// ==========================
+// CHARGER LES JSON
+// ==========================
+
+async function loadData() {
+
+    try {
+
+        const articlesResponse =
+            await fetch("articles.json");
+
+        articles = await articlesResponse.json();
+
+        renderArticles();
+
+    } catch(error) {
+
+        console.error(error);
+
+        document.getElementById("articlesGrid").innerHTML = `
+            <div class="error">
+                Impossible de charger les articles.
+                Utilisez un serveur local comme Live Server.
+            </div>
+        `;
+    }
+}
+
+
+// ==========================
+// AFFICHER ARTICLES
+// ==========================
+
+function renderArticles(category = null) {
+
+    const grid =
+        document.getElementById("articlesGrid");
+
+    grid.innerHTML = "";
+
+    let filtered = articles;
+
+    if(category) {
+
+        filtered = articles.filter(
+            article => article.category === category
+        );
+
+    }
+
+    filtered.forEach(article => {
+
+        const title =
+            article.title[currentLanguage];
+
+        const excerpt =
+            article.excerpt[currentLanguage];
+
+        const card = document.createElement("article");
+
+        card.className = "article-card";
+
+        card.innerHTML = `
+
+            <div class="article-image">
+                ${article.icon}
+            </div>
+
+            <div class="article-content">
+
+                <span class="article-category">
+                    ${article.category}
+                </span>
+
+                <h3>
+                    ${title}
+                </h3>
+
+                <p>
+                    ${excerpt}
+                </p>
+
+                <div class="article-footer">
+
+                    <span>
+                        ${article.date}
+                    </span>
+
+                    <button
+                        class="read-btn"
+                        onclick="openArticle(${article.id})"
+                    >
+                        Lire →
+                    </button>
+
+                </div>
+
+            </div>
+        `;
+
+        grid.appendChild(card);
+
+    });
+
+}
+
+
+// ==========================
+// OUVRIR ARTICLE
+// ==========================
+
+function openArticle(id) {
+
+    const article =
+        articles.find(a => a.id === id);
+
+    if(!article) return;
+
+    const title =
+        article.title[currentLanguage];
+
+    const content =
+        article.content[currentLanguage];
+
+    const url =
+        window.location.href.split("#")[0] +
+        "?article=" + article.id;
+
+    document.getElementById("modalContent").innerHTML = `
+
+        <span class="article-category">
+            ${article.category}
+        </span>
+
+        <h1>
+            ${title}
+        </h1>
+
+        <div class="article-date">
+            ${article.date}
+        </div>
+
+        <div class="full-article">
+            ${content}
+        </div>
+
+        <div class="share-section">
+
+            <h3>
+                Partager cet article
+            </h3>
+
+            <div class="share-buttons">
+
+                <a
+                    class="share facebook"
+                    target="_blank"
+                    href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}"
+                >
+                    📘 Facebook
+                </a>
+
+                <a
+                    class="share whatsapp"
+                    target="_blank"
+                    href="https://api.whatsapp.com/send?text=${encodeURIComponent(title + " - " + url)}"
+                >
+                    🟢 WhatsApp
+                </a>
+
+                <button
+                    class="share copy"
+                    onclick="copyArticleLink('${url}')"
+                >
+                    🔗 Copier le lien
+                </button>
+
+            </div>
+
+        </div>
+    `;
+
+    document
+        .getElementById("articleModal")
+        .classList.add("show");
+
+}
+
+
+// ==========================
+// COPIER LIEN
+// ==========================
+
+function copyArticleLink(url) {
+
+    navigator.clipboard.writeText(url);
+
+    alert(
+        currentLanguage === "fr"
+        ? "Lien copié !"
+        : "Rohy voadika!"
+    );
+
+}
+
+
+// ==========================
+// FERMER MODAL
+// ==========================
+
+document
+    .getElementById("closeModal")
+    .addEventListener("click", () => {
+
+        document
+            .getElementById("articleModal")
+            .classList.remove("show");
+
+    });
+
+
+// ==========================
+// LANGUE
+// ==========================
+
+document
+    .getElementById("languageBtn")
+    .addEventListener("click", async () => {
+
+        currentLanguage =
+            currentLanguage === "fr"
+            ? "mg"
+            : "fr";
+
+        document.getElementById("languageBtn").textContent =
+            currentLanguage === "fr"
+            ? "MG"
+            : "FR";
+
+        await loadTranslations();
+
+        renderArticles();
+
+    });
+
+
+// ==========================
+// TRADUCTIONS
+// ==========================
+
+async function loadTranslations() {
+
+    const response =
+        await fetch("translations.json");
+
+    const translations =
+        await response.json();
+
+    document
+        .querySelectorAll("[data-i18n]")
+        .forEach(element => {
+
+            const key =
+                element.dataset.i18n;
+
+            const value =
+                key.split(".").reduce(
+                    (obj, k) => obj?.[k],
+                    translations[currentLanguage]
+                );
+
+            if(value) {
+
+                element.textContent = value;
+
+            }
+
+        });
+
+}
+
+
+// ==========================
+// CATEGORIES
+// ==========================
+
+document
+    .querySelectorAll(".category")
+    .forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            renderArticles(
+                button.dataset.category
+            );
+
+            document
+                .getElementById("articles")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+        });
+
+    });
+
+
+document
+    .getElementById("allArticles")
+    .addEventListener("click", () => {
+
+        renderArticles();
+
+    });
+
+
+// ==========================
+// DARK MODE
+// ==========================
+
+document
+    .getElementById("themeBtn")
+    .addEventListener("click", () => {
+
+        document.body.classList.toggle("dark");
+
+    });
+
+
+// ==========================
+// NEWSLETTER
+// ==========================
+
+document
+    .getElementById("newsletterForm")
+    .addEventListener("submit", e => {
+
+        e.preventDefault();
+
+        alert(
+            currentLanguage === "fr"
+            ? "Merci pour ton inscription !"
+            : "Misaotra tamin'ny fisoratana anarana!"
+        );
+
+        e.target.reset();
+
+    });
+
+
+// ==========================
+// START
+// ==========================
+
+loadTranslations();
+loadData();
+
+</script>
+
+</body>
+              </html>
