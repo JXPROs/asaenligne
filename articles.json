@@ -1,0 +1,70 @@
+[
+    {
+        "id": 1,
+        "category": "Freelancing",
+        "icon": "💻",
+        "date": "08 Octobre 2026",
+
+        "title": {
+            "fr": "Comment commencer le freelancing depuis Madagascar ?",
+            "mg": "Ahoana no hanombohana freelancing avy eto Madagasikara?"
+        },
+
+        "excerpt": {
+            "fr": "Découvrez les premières étapes pour vendre vos compétences sur Internet.",
+            "mg": "Fantaro ireo dingana voalohany hivarotana ny fahaiza-manaonao amin'ny Internet."
+        },
+
+        "content": {
+            "fr": "<p>Le freelancing permet de vendre ses compétences directement à des clients partout dans le monde.</p><p>Pour commencer, choisissez une compétence précise : développement web, design, traduction, rédaction, montage vidéo ou assistance virtuelle.</p><p>Créez ensuite un portfolio simple présentant vos réalisations. Commencez avec des missions accessibles afin d'obtenir vos premières évaluations.</p><p>Avec le temps, améliorez vos compétences et augmentez progressivement vos tarifs.</p>",
+
+            "mg": "<p>Ny freelancing dia ahafahanao mivarotra ny fahaiza-manaonao amin'ny mpanjifa manerana izao tontolo izao.</p><p>Misafidiana fahaiza-manao iray mazava, toy ny développement web, design, traduction, rédaction, montage vidéo na assistance virtuelle.</p><p>Mamoròna portfolio tsotra ahitana ny asa efa vitanao. Atombohy amin'ny asa mora kokoa mba hahazoana traikefa sy avis.</p><p>Rehefa mandroso ianao dia hatsarao hatrany ny fahaiza-manaonao ary ampitomboy tsikelikely ny vidin'ny tolotrao.</p>"
+        }
+    },
+
+    {
+        "id": 2,
+        "category": "Business",
+        "icon": "🚀",
+        "date": "07 Octobre 2026",
+
+        "title": {
+            "fr": "5 idées de business digital à commencer avec peu d'argent",
+            "mg": "Hevitra 5 amin'ny business digital azo atomboka amin'ny vola kely"
+        },
+
+        "excerpt": {
+            "fr": "Des idées simples pour créer une activité numérique avec un petit budget.",
+            "mg": "Hevitra tsotra hanombohana activité numérique amin'ny budget kely."
+        },
+
+        "content": {
+            "fr": "<p>Internet permet aujourd'hui de lancer plusieurs activités sans avoir besoin d'un grand capital.</p><p>Vous pouvez par exemple créer un service de création de sites web, vendre des produits numériques, proposer du community management, faire du montage vidéo ou créer un petit SaaS.</p><p>Le plus important est de commencer par résoudre un problème réel pour un groupe précis de clients.</p>",
+
+            "mg": "<p>Ny Internet amin'izao fotoana izao dia manome fahafahana hanomboka business maro na dia kely aza ny vola.</p><p>Afaka mamorona service web ianao, mivarotra produits numériques, manao community management, montage vidéo na mamorona SaaS kely.</p><p>Ny zava-dehibe indrindra dia ny mamaha olana tena misy ho an'ny olona na orinasa iray voafaritra tsara.</p>"
+        }
+    },
+
+    {
+        "id": 3,
+        "category": "Compétences",
+        "icon": "🎯",
+        "date": "05 Octobre 2026",
+
+        "title": {
+            "fr": "Quelles compétences apprendre pour travailler en ligne ?",
+            "mg": "Inona avy ireo fahaiza-manao tokony hianarana raha te hiasa amin'ny Internet?"
+        },
+
+        "excerpt": {
+            "fr": "Les compétences numériques les plus intéressantes pour débuter.",
+            "mg": "Ireo fahaiza-manao numérique mahaliana ho an'izay vao manomboka."
+        },
+
+        "content": {
+            "fr": "<p>Il n'est pas nécessaire de tout apprendre. Choisissez une compétence qui correspond à vos intérêts.</p><p>Le développement web, le design graphique, la vidéo, le marketing digital, la rédaction et l'assistance virtuelle sont quelques exemples.</p><p>Apprenez progressivement, pratiquez avec de vrais projets et construisez un portfolio.</p>",
+
+            "mg": "<p>Tsy voatery hianatra zavatra rehetra ianao. Misafidiana fahaiza-manao mifanaraka amin'ny zavatra tianao.</p><p>Ohatra amin'izany ny développement web, design graphique, vidéo, marketing digital, rédaction ary assistance virtuelle.</p><p>Mianara tsikelikely, manaova projets tena izy ary mamoròna portfolio.</p>"
+        }
+    }
+]
